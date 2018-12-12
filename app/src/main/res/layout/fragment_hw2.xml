@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="vm"
+            type="chenyijie.voicetube.viewmodel.HW2FragmentViewModel" />
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/text_auto_play"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/auto_play" />
+
+        <android.support.v7.widget.SwitchCompat
+            android:id="@+id/autoplay_select"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:checked="@{vm.autoPlaySwitchOn}"
+            android:onCheckedChanged="@{(switch, checked) -> vm.onAutoPlayCheckedChanged(checked)}" />
+
+        <TextView
+            android:id="@+id/text_sync_subtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/text_auto_play"
+            android:layout_marginTop="@dimen/default_margin"
+            android:gravity="center"
+            android:text="@string/sync_subtitle" />
+
+        <android.support.v7.widget.SwitchCompat
+            android:id="@+id/sync_subtitle_select"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@+id/autoplay_select"
+            android:layout_marginTop="@dimen/default_margin"
+            android:checked="@{vm.syncSubtitleSwitchOn}"
+            android:onCheckedChanged="@{(switch, checked) -> vm.onSyncSubtitleCheckedChanged(checked)}" />
+
+        <TextView
+            android:id="@+id/text_pause"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/text_sync_subtitle"
+            android:layout_marginTop="@dimen/default_margin"
+            android:gravity="center"
+            android:text="@string/pause" />
+
+        <android.support.v7.widget.SwitchCompat
+            android:id="@+id/pause_select"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@+id/sync_subtitle_select"
+            android:layout_marginTop="@dimen/default_margin"
+            android:checked="@{vm.pauseSwitchOn}"
+            android:onCheckedChanged="@{(switch, checked) -> vm.onPauseCheckedChanged(checked)}" />
+
+        <TextView
+            android:id="@+id/text_recommend_video"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/text_pause"
+            android:layout_marginTop="@dimen/default_margin"
+            android:gravity="center"
+            android:text="@string/recommend_video" />
+
+        <android.support.v7.widget.SwitchCompat
+            android:id="@+id/recommend_video_select"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@+id/pause_select"
+            android:layout_marginTop="@dimen/default_margin"
+            android:checked="@{vm.recommendVideoSwitchOn}"
+            android:onCheckedChanged="@{(switch, checked) -> vm.onRecommendVideoCheckedChanged(checked)}" />
+
+        <TextView
+            android:id="@+id/text_notify"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/text_recommend_video"
+            android:layout_marginTop="@dimen/default_margin"
+            android:gravity="center"
+            android:text="@string/notify" />
+
+        <android.support.v7.widget.SwitchCompat
+            android:id="@+id/notify_select"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@+id/recommend_video_select"
+            android:layout_marginTop="@dimen/default_margin"
+            android:checked="@{vm.notifySwitchOn}"
+            android:onCheckedChanged="@{(switch, checked) -> vm.onNotifyCheckedChanged(checked)}" />
+    </RelativeLayout>
+
+
+</layout>

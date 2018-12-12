@@ -1,0 +1,41 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View"/>
+
+        <variable
+            name="data"
+            type="chenyijie.voicetube.data.VideoData" />
+
+        <variable
+            name="clickEvent"
+            type="android.view.View.OnClickListener" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="@{clickEvent}"
+        android:padding="@dimen/default_margin">
+
+        <ImageView
+            android:id="@+id/icon"
+            android:layout_width="@dimen/img_size"
+            android:layout_height="@dimen/img_size"
+            android:scaleType="centerCrop"
+            app:imageUrl="@{data.img}" />
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/icon"
+            android:text="@{data.title}"
+            tools:text="億載金城武" />
+
+    </RelativeLayout>
+
+</layout>

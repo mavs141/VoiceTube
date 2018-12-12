@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="chenyijie.voicetube.utils.RxUnit" />
+
+        <variable
+            name="vm"
+            type="chenyijie.voicetube.viewmodel.HW3FragmentViewModel" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/default_margin"
+            android:background="@null"
+            android:digits="0123456789"
+            android:enabled="@{!vm.keepCountingDown}"
+            android:gravity="center"
+            android:hint="@string/countdown_hint"
+            android:inputType="numberDecimal"
+            android:lines="1"
+            android:text="@={vm.inputField}" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/default_margin"
+            android:onClick="@{v->vm.clickSource.onNext(true)}"
+            android:text="@string/button_start_countdown" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/default_margin"
+            android:onClick="@{v->vm.clickSource.onNext(false)}"
+            android:text="@string/button_pause_countdown" />
+
+    </LinearLayout>
+
+</layout>
